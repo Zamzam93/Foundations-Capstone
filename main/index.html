@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="notes" id="app">
+        <div class="notes__sidebar">
+           <button class="add__notes">Add Notes<button> 
+            <div class="notes__lists"></div>
+            <div class="notes__list-item notes__list-item--selected">
+                <div class="notes__small-tittle">Lecture Notes</div>
+                <div class="notes__small-body">I learned about data structure today.</div>
+                <div class="notes__small-updated">Thursday12:00pm Notes</div>
+            </div>
+        </div>
+        <div class="notes__preview">
+           <input class = "notes__title" 
+           type="text" 
+           placeholder="Enter a title"> 
+           <textarea class="notes__body">This is the notes body.</textarea>
+        </div>
+
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+
+<script src="main.js"></script>
+</body>
+</html>
