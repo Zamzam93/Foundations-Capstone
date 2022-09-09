@@ -1,45 +1,55 @@
-
+let noteList = document.querySelector('.notes__lists')
 let addNoteButton = document.querySelector('.add__notes')
 const notesCallback = ({ data: notesDB }) => displayNotes(notesDB)
 
-const createNote = body => axios.post('http://localhost:4000/api/notesDB/', body).then(notesCallback).catch(errCallback)
+
+
 //make function that looks like #6
-function submitHandler(e){
-    e.preventDefault();
+// function submitHandler(e){
+//     e.preventDefault();
+//     console.log("hello, world")
 
-    let title = document.querySelector('.notes_small-tittle')
-    let noteBody = document.querySelector('.notes_small-body')
-
-
-    let bodyObj = {
-        title: title.value,
-        noteBody: noteBody.value,
-    }
-    createNote(bodyObj)
-
-    title.value = ''
-    noteBody.value = ''
-
-
-}
+    
 let noteContainer = document.querySelector('.notes__preview')
-function createNoteCard(note){
-    let noteCard = document.createAttribute('div')
-    noteCard.innerHTML = `<h4>${note.title}</h4><p>${note.body}</p>`
+function createNoteCards(notes){
+    noteList.innerHTML = ""
+    //do a for loop to loop through and create note for each note
+    for (let i = 0; i < notes.length ; i++) {
+        let note = notes[i]
+        let noteCard = document.createElement('div')
+        noteCard.innerHTML = `<h4>${note.title}</h4><p>${note.body}</p>` 
+        noteList.appendChild(noteCard) 
+    }
 
-notesPreview.appendChild(noteCard)
+   
+    
+
+
+
 }
 
 
 function addNote(){
     console.log('note added works')
-    console.log()
-    let noteTitle = document.querySelector(".notes__small-tittle")
-    
-    let noteBody = document.querySelector(".notes__small-body")
-    const note = document.createElement("div")
+    const noteTitle = document.querySelector(".notestitle")
+    const noteBody = document.querySelector(".notes-body")
+   let obj = {
+    title: noteTitle.value,
+    body: noteBody.value
+   }
+   console.log(obj)
 
-    note.textContent = noteTitle.value;
+   axios.post('http://localhost:4000/api/notesDB/', obj)
+   .then(res => {
+       console.log(res.data)
+       createNoteCards(res.data)
+   })
+    // let noteTitle = document.querySelector(".notes__small-tittle")
+    
+    // let noteBody = document.querySelector(".notes__small-body")
+    // const note = document.createElement("div")
+
+    // note.textContent = noteTitle.value;
 }
 
 function displayNotes(arr){

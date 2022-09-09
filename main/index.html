@@ -11,19 +11,26 @@
     <div class="notes" id="app">
         <div class="notes__sidebar">
            <button class="add__notes">Add Notes<button> 
-            <div class="notes__lists"></div>
+            <section class="notes__lists"></section>
             <div class="notes__list-item notes__list-item--selected">
-                <div class="notes__small-tittle">Lecture Notes</div>
+                <!-- <div class="notes__small-tittle">Lecture Notes</div>
                 <div class="notes__small-body">I learned about data structure today.</div>
-                <div class="notes__small-updated">Thursday12:00pm Notes</div>
+                <div class="notes__small-updated">Thursday12:00pm Notes</div> -->
             </div>
         </div>
-        <div class="notes__preview">
+        <form class="notes__preview" >
+            <input type="text" placeholder="Enter a title" class="notestitle">
+            <input type="text" placeholder="Enter a body" class="notes-body"> 
+
+            </form>
+
+
+        <!-- <div class="notes__preview">
            <input class = "notes__title" 
            type="text" 
            placeholder="Enter a title"> 
            <textarea class="notes__body">This is the notes body.</textarea>
-        </div>
+        </div> -->
 
     </div>
 

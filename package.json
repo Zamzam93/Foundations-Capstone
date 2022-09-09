@@ -6,11 +6,21 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zamzam93/Foundations-Capstone.git"
+  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zamzam93/Foundations-Capstone/issues"
+  },
+  "homepage": "https://github.com/Zamzam93/Foundations-Capstone#readme",
   "dependencies": {
     "axios": "^0.27.2",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
     "express": "^4.18.1"
   }
 }
