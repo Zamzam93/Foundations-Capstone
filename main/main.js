@@ -1,3 +1,5 @@
+//const { default: axios } = require("axios")
+
 let noteList = document.querySelector('.notes__lists')
 let addNoteButton = document.querySelector('.add__notes')
 const notesCallback = ({ data: notesDB }) => displayNotes(notesDB)
@@ -12,20 +14,45 @@ const notesCallback = ({ data: notesDB }) => displayNotes(notesDB)
     
 let noteContainer = document.querySelector('.notes__preview')
 function createNoteCards(notes){
-    noteList.innerHTML = ""
+    noteList.innerHTML = "<div>"
     //do a for loop to loop through and create note for each note
     for (let i = 0; i < notes.length ; i++) {
         let note = notes[i]
         let noteCard = document.createElement('div')
-        noteCard.innerHTML = `<h4>${note.title}</h4><p>${note.body}</p>` 
-        noteList.appendChild(noteCard) 
+        noteCard.innerHTML = `<div><h4>${note.title}</h4><p>${note.body}</p><span onClick="deleteNote(${note.id})">delete</span></div>`
+        noteList.append(noteCard) 
     }
+    nodeList.innerHTML += "</div>"
 
-   
-    
+    /*
+
+        Problem is we stack cards in a single Notelist. 
+        When a card is clicked for deletion, every card gets deleted.
+        We need to seperate the cards out into their own elements
+    */
+}
 
 
+function getAllNotes() {
+    console.log('TEST')
+    axios.get('http://localhost:4000/api/getNotes/').then(
+        res => {
+            console.log(res.data);
+            createNoteCards(res.data)
+        }
+    )
+}
 
+function deleteNote(id) {
+    console.log('Testing DELETE with ID:', id)
+    let path = `http://localhost:4000/api/deleteNote/${id}`
+    console.log(path)
+    axios.delete(path)
+    .then(res => {
+        console.log("WE RETURNED")
+        console.log("Returned data: ", res.data)
+        createNoteCards(res.data)
+    })
 }
 
 
@@ -62,5 +89,5 @@ function displayNotes(arr){
 //get post to work hopefully by tomorrow.
 
 //once addnote works note then in the createnote function put in the hmtl function for delete button
-
 addNoteButton.addEventListener('click', addNote)
+window.addEventListener('load', getAllNotes)

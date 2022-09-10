@@ -15,5 +15,18 @@ module.exports = {
         notesDB.push(newNote)
         res.status(200).send(notesDB)
 
+    },
+    getAllNotes: (req,res) => {
+        console.log("Testing get function ", notesDB)
+        res.status(200).send(notesDB)
+    },
+    deleteNote: (req,res) => {
+        console.log("DID WE REACH HERE")
+        console.log(req.params.id)
+        const {id} =  parseInt(req.params);
+        console.log('ID is: ',id)
+        notesDB.splice(id-1);
+        console.log(notesDB)
+        res.status(200).send(notesDB)
     }
 }
