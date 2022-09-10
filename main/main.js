@@ -19,7 +19,7 @@ function createNoteCards(notes){
     for (let i = 0; i < notes.length ; i++) {
         let note = notes[i]
         let noteCard = document.createElement('div')
-        noteCard.innerHTML = `<div><h4>${note.title}</h4><p>${note.body}</p><span onClick="deleteNote(${note.id})">delete</span></div>`
+        noteCard.innerHTML = `<div><h4>${note.title}</h4><p>${note.body}</p><button class="deleteBtn" onClick="deleteNote(${note.id})">delete</button></div>`
         noteList.append(noteCard) 
     }
     nodeList.innerHTML += "</div>"
@@ -54,7 +54,6 @@ function deleteNote(id) {
         createNoteCards(res.data)
     })
 }
-
 
 function addNote(){
     console.log('note added works')

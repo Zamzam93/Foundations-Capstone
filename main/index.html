@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
+    <h1 class="heading">Note Taking App</h1>
     <div class="notes" id="app">
         <div class="notes__sidebar">
-           <button class="add__notes">Add Notes<button> 
+          
             <section class="notes__lists"></section>
             <div class="notes__list-item notes__list-item--selected">
                 <!-- <div class="notes__small-tittle">Lecture Notes</div>
@@ -18,11 +19,14 @@
                 <div class="notes__small-updated">Thursday12:00pm Notes</div> -->
             </div>
         </div>
-        <form class="notes__preview">
-            <input type="text" placeholder="Enter a title" class="notestitle">
-            <input type="text" placeholder="Enter a body" class="notes-body"> 
-
+        <aside>
+            <form class="notes__preview">
+                <input type="text" placeholder="Enter a title" class="notestitle">
+                <input type="text" placeholder="Enter a body" class="notes-body"> 
+                <button class="add__notes">Add Notes</button>
             </form>
+        </aside>
+        
 
 
         <!-- <div class="notes__preview">
@@ -33,7 +37,7 @@
         </div> -->
 
     </div>
-
+   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
 
 <script src="main.js"></script>
