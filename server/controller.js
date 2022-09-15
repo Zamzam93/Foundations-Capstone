@@ -25,7 +25,7 @@ module.exports = {
         console.log(req.params.id)
         const {id} =  parseInt(req.params);
         console.log('ID is: ',id)
-        notesDB.splice(id-1);
+        notesDB.splice(id,1);
         console.log(notesDB)
         res.status(200).send(notesDB)
     }

@@ -1,12 +1,20 @@
 html,
 body {
     height: 100%;
+    width: 100%;
     margin: 0;
+    background:url("../assets/imag2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-origin: content-box;
 }
 
 .notes {
     display: flex;
     height: 100%;
+    justify-content: center;
+    gap: 40px;
 }
 
 .notes * {
@@ -18,11 +26,11 @@ body {
     flex-shrink: 0;
     overflow-y: auto;
     padding: 1em;
-    width: 300px;
+    width: 240px;
 }
 
 .add__notes {
-    background: #FF1493;
+    background:#ff7f50;
     border: none;
     border-radius: 7px;
     color: #ffffff;
@@ -70,10 +78,10 @@ body {
 .notes__preview {
     display: flex;
     flex-direction: column;
-    padding: 2em 3em;
+    padding: 2em 1em;
     flex-grow: 1;
     gap: 15px;
-    width: 100%;
+    width: 250px;
 }
 
 .notes__title,
@@ -99,7 +107,8 @@ body {
 
 .heading{
     text-align: center;
-    color: black;
+    color: 	#ff7f50;
+    font-style: italic;
 }
 
 .notestitle, .notes-body{

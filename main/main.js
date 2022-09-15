@@ -22,7 +22,7 @@ function createNoteCards(notes){
         noteCard.innerHTML = `<div><h4>${note.title}</h4><p>${note.body}</p><button class="deleteBtn" onClick="deleteNote(${note.id})">delete</button></div>`
         noteList.append(noteCard) 
     }
-    nodeList.innerHTML += "</div>"
+    noteList.innerHTML += "</div>"
 
     /*
 
